@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
 jobs:
-  install:
+  install-ubuntu-22:
     runs-on: ubuntu-22.04
     steps:
       - name: Install dependencies
