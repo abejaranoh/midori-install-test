@@ -31,6 +31,8 @@ jobs:
       - name: Install dependencies
         run: |
           apt update -y
+      - name: install wget
+        run: |
           apt install wget
       - name: Get package
         run: | 
