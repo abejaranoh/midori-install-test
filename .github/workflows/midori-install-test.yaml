@@ -30,11 +30,11 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
-          sudo apt update
-          sudo apt install wget
+          apt update
+          apt install wget
       - name: Get package
         run: | 
           wget https://github.com/goastian/midori-desktop/releases/download/v$VERSION/$PACKAGE
       - name: Install Midori
         run: |
-          sudo apt install ./$PACKAGE
+          apt install ./$PACKAGE
