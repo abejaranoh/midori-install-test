@@ -1,0 +1,18 @@
+name: midori install test
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  install:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt install wget
+      - name: Get package
+        run: | 
+          wget https://github.com/goastian/midori-desktop/releases/download/v11.4.3/midori_11.4.3_amd64.deb
+      - name: Install Midori
+        run: |
+          apt install ./midori_11.4.3_amd64.deb
+          
