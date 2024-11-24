@@ -39,4 +39,4 @@ jobs:
           wget https://github.com/goastian/midori-desktop/releases/download/v$VERSION/$PACKAGE
       - name: Install Midori
         run: |
-          apt install ./$PACKAGE
+          apt install ./$PACKAGE -y
