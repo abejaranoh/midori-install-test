@@ -15,5 +15,5 @@ jobs:
           wget https://github.com/goastian/midori-desktop/releases/download/v11.4.3/midori_11.4.3_amd64.deb
       - name: Install Midori
         run: |
-          apt install ./midori_11.4.3_amd64.deb
+          sudo apt install ./midori_11.4.3_amd64.deb
           
