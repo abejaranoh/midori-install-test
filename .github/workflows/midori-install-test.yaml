@@ -26,7 +26,7 @@ jobs:
   install-debian:
     runs-on: ubuntu-latest 
     container:
-      image: debian12
+      image: debian:12
     steps:
       - name: Install dependencies
         run: |
