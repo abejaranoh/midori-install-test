@@ -31,9 +31,9 @@ jobs:
       - name: Install dependencies
         run: |
           apt update
-      - name: install wget -y
+      - name: install wget
         run: |
-          apt install wget
+          apt install wget -y
       - name: Get package
         run: | 
           wget https://github.com/goastian/midori-desktop/releases/download/v$VERSION/$PACKAGE
