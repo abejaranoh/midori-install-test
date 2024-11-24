@@ -3,10 +3,14 @@ on:
   workflow_dispatch:
   push:
 env:
+  VERSION: 11.4.3
   PACKAGE: midori_11.4.3_amd64.deb
 jobs:
-  install-ubuntu-22:
-    runs-on: ubuntu-22.04
+  install-ubuntu-lts:
+    runs-on: ${{ matrix.runner }} 
+    strategy:
+      matrix:
+        runner: [ ubuntu-24.04, ubuntu-22.04, ubuntu-20.04 ]
     steps:
       - name: Install dependencies
         run: |
@@ -14,7 +18,7 @@ jobs:
           sudo apt install wget
       - name: Get package
         run: | 
-          wget https://github.com/goastian/midori-desktop/releases/download/v11.4.3/$PACKAGE
+          wget https://github.com/goastian/midori-desktop/releases/download/v$VERSION/$PACKAGE
       - name: Install Midori
         run: |
           sudo apt install ./$PACKAGE
