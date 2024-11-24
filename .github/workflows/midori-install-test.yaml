@@ -29,7 +29,7 @@ jobs:
       image: ${{ matrix.container }}
     strategy:
       matrix:
-        container: ["debian:12", "debian:11"]
+        container: ["debian:trixie","debian:12", "debian:11"]
     steps:
       - name: Install dependencies
         run: |
