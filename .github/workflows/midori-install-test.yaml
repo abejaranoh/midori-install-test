@@ -20,7 +20,7 @@ jobs:
           sudo apt install wget
       - name: Get package
         run: | 
-          wget https://github.com/goastian/midori-desktop/releases/download/v$VERSION/$PACKAGE
+          wget https://github.com/goastian/midori-desktop/releases/download/$VERSION/$PACKAGE
       - name: Install Midori
         run: |
           sudo apt install ./$PACKAGE        
