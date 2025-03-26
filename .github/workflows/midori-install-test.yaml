@@ -4,7 +4,7 @@ on:
   push:
 env:
   VERSION: 11.5.1
-  PACKAGE: midori_11.5.1-1_amd64.deb 
+  PACKAGE: midori_11.5.1-2_amd64.deb 
 jobs:
   install-ubuntu-lts:
     runs-on: ${{ matrix.runner }} 
