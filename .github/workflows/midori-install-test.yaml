@@ -7,7 +7,9 @@ env:
   PACKAGE_AMD: midori_11.5.2-1_amd64.deb
   PACKAGE_ARM: midori_11.5.2-1_arm64.deb
 jobs:
-  install-ubuntu-lts:
+  install-ubuntu-lts-amd64:
+    env: 
+      PACKAGE: PACKAGE_AMD 
     runs-on: ${{ matrix.os }}
     #runs-on: ${{ matrix.runner }} 
     strategy:
@@ -27,7 +29,7 @@ jobs:
           sudo apt install wget
       - name: Get package
         run: | 
-          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_AMD}
+          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
       - name: Install Midori
         run: |
           sudo apt install ./$PACKAGE        
@@ -51,4 +53,4 @@ jobs:
           wget https://github.com/goastian/midori-desktop/releases/download/v$VERSION/$PACKAGE_AMD
       - name: Install Midori
         run: |
-          apt install ./$PACKAGE -y
+          apt install ./$PACKAGE_AMD -y
