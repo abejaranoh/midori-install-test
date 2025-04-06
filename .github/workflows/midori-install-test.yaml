@@ -32,37 +32,31 @@ jobs:
       
       - name: Get Package AMD 64
         if: matrix.arch == 'amd64'
-        env: 
-          PACKAGE: ${{ env.PACKAGE_AMD }}
+#        env: 
+#          PACKAGE: ${{ env.PACKAGE_AMD }}
         run: |
-          echo arch_is_amd64
-#          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
+          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_AMD}
 
       - name: Get Package ARM 64
         if: matrix.arch == 'arm64'
-        env: 
-          PACKAGE: ${{ env.PACKAGE_ARM }}
+#        env: 
+#          PACKAGE: ${{ env.PACKAGE_ARM }}
         run: | 
-          echo arch_is_amd64
-
-      - name: Get Package
-        run: |
-          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
-
-      
+          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_ARM}
+     
       - name: Install Midori AMD 64
         if: matrix.arch == 'amd64'
-        env: 
-          PACKAGE: ${{ env.PACKAGE_AMD }}
+ #       env: 
+ #         PACKAGE: ${{ env.PACKAGE_AMD }}
         run: |
-          sudo apt install ./$PACKAGE        
+          sudo apt install ./$PACKAGE_AMD        
 
       - name: Install Midori ARM 64
         if: matrix.arch == 'arm64'
-        env: 
-          PACKAGE: ${{ env.PACKAGE_ARM }}
+  #      env: 
+  #        PACKAGE: ${{ env.PACKAGE_ARM }}
         run: |
-          sudo apt install ./$PACKAGE        
+          sudo apt install ./$PACKAGE_ARM        
 
   install-debian:
     runs-on: ubuntu-latest
