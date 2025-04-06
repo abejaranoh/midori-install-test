@@ -21,13 +21,16 @@ jobs:
             arch: amd64  
 #        runner: [ ubuntu-24.04, ubuntu-22.04, ubuntu-20.04 ]
     steps:
+      - name: choose package
+        env: 
+          PACKAGE: ${{ env.PACKAGE_AMD }}
       - name: Install dependencies
         run: |
           sudo apt update
           sudo apt install wget
       - name: Get package
-        env: 
-            PACKAGE: ${{ env.PACKAGE_AMD }}
+        #env: 
+        #    PACKAGE: ${{ env.PACKAGE_AMD }}
         run: | 
           wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
       - name: Install Midori
