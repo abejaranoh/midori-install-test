@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
   push:
 env:
-  VERSION: 11.5.1
-  PACKAGE: midori_11.5.1-2_amd64.deb 
+  VERSION: 11.5.2
+  PACKAGE: midori_11.5.2-1_amd64.deb 
 jobs:
   install-ubuntu-lts:
     runs-on: ${{ matrix.runner }} 
