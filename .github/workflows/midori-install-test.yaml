@@ -9,7 +9,7 @@ env:
 jobs:
   install-ubuntu-lts-amd64:
     env: 
-      PACKAGE: ${{ vars.PACKAGE_AMD }}
+      PACKAGE: ${{ env.PACKAGE_AMD }}
     runs-on: ${{ matrix.os }}
     #runs-on: ${{ matrix.runner }} 
     strategy:
