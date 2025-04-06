@@ -35,6 +35,7 @@ jobs:
           wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
       
       - name: Install Midori
+        if: matrix.arch == 'amd64'
         env: 
           PACKAGE: ${{ env.PACKAGE_AMD }}
         run: |
