@@ -37,6 +37,8 @@ jobs:
         run: | 
           wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
       - name: Install Midori
+        env: 
+            PACKAGE: ${{ env.PACKAGE_AMD }}
         run: |
           sudo apt install ./$PACKAGE        
 
