@@ -19,6 +19,10 @@ jobs:
             arch: amd64
           - os: ubuntu-20.04
             arch: amd64  
+          - os: ubuntu-24.04-arm
+            arch: arm64
+          - os: ubuntu-22.04-arm
+            arch: arm64
 #        runner: [ ubuntu-24.04, ubuntu-22.04, ubuntu-20.04 ]
     steps:
       
@@ -27,17 +31,32 @@ jobs:
           sudo apt update
           sudo apt install wget
       
-      - name: Get Package
+      - name: Get Package AMD 64
         if: matrix.arch == 'amd64'
         env: 
           PACKAGE: ${{ env.PACKAGE_AMD }}
         run: | 
           wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
+
+      - name: Get Package ARM 64
+        if: matrix.arch == 'arm64'
+        env: 
+          PACKAGE: ${{ env.PACKAGE_ARM }}
+        run: | 
+          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
+
       
-      - name: Install Midori
+      - name: Install Midori AMD 64
         if: matrix.arch == 'amd64'
         env: 
           PACKAGE: ${{ env.PACKAGE_AMD }}
+        run: |
+          sudo apt install ./$PACKAGE        
+
+      - name: Install Midori ARM 64
+        if: matrix.arch == 'arm64'
+        env: 
+          PACKAGE: ${{ env.PACKAGE_ARM }}
         run: |
           sudo apt install ./$PACKAGE        
 
