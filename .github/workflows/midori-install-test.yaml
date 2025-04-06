@@ -4,7 +4,8 @@ on:
   push:
 env:
   VERSION: 11.5.2
-  PACKAGE: midori_11.5.2-1_amd64.deb 
+  PACKAGE_AMD: midori_11.5.2-1_amd64.deb
+  PACKAGE_ARM: midori_11.5.2-1_arm64.deb
 jobs:
   install-ubuntu-lts:
     runs-on: ${{ matrix.os }}
@@ -26,7 +27,7 @@ jobs:
           sudo apt install wget
       - name: Get package
         run: | 
-          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
+          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_AMD}
       - name: Install Midori
         run: |
           sudo apt install ./$PACKAGE        
@@ -47,7 +48,7 @@ jobs:
           apt install wget -y
       - name: Get package
         run: | 
-          wget https://github.com/goastian/midori-desktop/releases/download/v$VERSION/$PACKAGE
+          wget https://github.com/goastian/midori-desktop/releases/download/v$VERSION/$PACKAGE_AMD
       - name: Install Midori
         run: |
           apt install ./$PACKAGE -y
