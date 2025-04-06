@@ -46,6 +46,7 @@ jobs:
           echo arch_is_amd64
 
       - name: Get Package
+        run: |
           wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE}
 
       
