@@ -21,10 +21,13 @@ jobs:
             arch: amd64  
 #        runner: [ ubuntu-24.04, ubuntu-22.04, ubuntu-20.04 ]
     steps:
-      - name: choose package
+      #- name: choose package
+        #env: 
+        #  PACKAGE: ${{ env.PACKAGE_AMD }}
+        #run : echo hola
+      - name: Install dependencies
         env: 
           PACKAGE: ${{ env.PACKAGE_AMD }}
-      - name: Install dependencies
         run: |
           sudo apt update
           sudo apt install wget
