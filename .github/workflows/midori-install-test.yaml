@@ -3,25 +3,29 @@ on:
   workflow_dispatch:
   push:
 env:
-  VERSION: 11.5.2
-  PACKAGE_AMD: midori_11.5.2-1_amd64.deb
-  PACKAGE_ARM: midori_11.5.2-1_arm64.deb
+  VERSION: 11.5.3
+  PACKAGE_AMD: midori_11.5.3-1_arm64.deb 
+  PACKAGE_ARM:  midori_11.5.3-1_arm64.deb 
 jobs:
   Ubuntu:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         include:
+          - os: ubuntu-25.04
+            arch: amd64  
+          - os: ubuntu-25.04-arm
+            arch: arm64
           - os: ubuntu-24.04
             arch: amd64
-          - os: ubuntu-22.04
-            arch: amd64
-          - os: ubuntu-20.04
-            arch: amd64  
           - os: ubuntu-24.04-arm
             arch: arm64
+          - os: ubuntu-22.04
+            arch: amd64
           - os: ubuntu-22.04-arm
             arch: arm64
+          - os: ubuntu-20.04
+            arch: amd64  
             
     steps:
       
