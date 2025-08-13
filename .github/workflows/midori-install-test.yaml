@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
   push:
 env:
-  VERSION: 11.5.3
-  PACKAGE_AMD: midori_11.5.3-1_amd64.deb 
-  PACKAGE_ARM: midori_11.5.3-1_arm64.deb 
+  VERSION: 11.6
+  PACKAGE_AMD: midori_11.6-1_amd64.deb 
+  PACKAGE_ARM: midori_11.6-1_arm64.deb 
 jobs:
   Ubuntu:
     runs-on: ${{ matrix.os }}
@@ -54,7 +54,7 @@ jobs:
       image: ${{ matrix.container }}
     strategy:
       matrix:
-        container: ["debian:trixie","debian:12", "debian:11"]
+        container: [ "debian:forky","debian:13","debian:12","debian:11"]
     steps:
       - name: Install dependencies
         run: |
