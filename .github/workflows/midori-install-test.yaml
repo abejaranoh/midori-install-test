@@ -4,7 +4,8 @@ on:
   push:
 env:
   VERSION: 11.6.5
-  PACKAGE_AMD: midori_11.6.5-0_amd64.deb 
+  NAME: midori
+  PACKAGE_AMD: ${NAME}_11.6.5-0_amd64.deb 
   PACKAGE_ARM: midori_11.6.5-0_arm64.deb 
 
 jobs:
