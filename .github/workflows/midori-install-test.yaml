@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
   push:
 env:
-  VERSION: 11.6.5.1
-  PACKAGE_AMD: midori_11.6.5.1-0_amd64.deb 
-  PACKAGE_ARM: midori_11.6.5.1-0_arm64.deb 
+  VERSION: 11.7
+  PACKAGE_AMD: midori_11.7-0_amd64.deb 
+  PACKAGE_ARM: midori_11.7-0_arm64.deb 
 
 jobs:
   Ubuntu:
