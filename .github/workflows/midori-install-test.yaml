@@ -5,7 +5,7 @@ on:
 env:
   VERSION: 11.7.2
   PACKAGE_AMD: midori_11.7.2-0_amd64.deb 
-  PACKAGE_ARM: midori_11.7-2.0_arm64.deb 
+  PACKAGE_ARM: midori_11.7.2-0_arm64.deb 
 
 jobs:
   Ubuntu:
