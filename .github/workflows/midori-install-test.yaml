@@ -4,7 +4,7 @@ on:
   push:
 env:
   VERSION: 11.8.2
-  PACKAGE_AMD: midori_11.8.2-0_amd64.deb 
+  PACKAGE_AMD: midori_12.0_amd64.deb 
   PACKAGE_ARM: midori_11.8.2-0_arm64.deb 
 
 jobs:
