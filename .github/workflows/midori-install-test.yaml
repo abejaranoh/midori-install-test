@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
   push:
 env:
-  VERSION: 12.0
-  PACKAGE_AMD: midori_12.0_amd64.2.deb 
+  VERSION: 11.8.2
+  PACKAGE_AMD:  midori_11.8.2-0_amd64.deb 
 #  https://github.com/goastian/midori-desktop/releases/download/v12.0/midori_12.0_amd64.2.deb
-  PACKAGE_ARM: midori_12.0_arm64.deb 
+#  PACKAGE_ARM: midori_12.0_arm64.deb 
 
 jobs:
   Ubuntu:
