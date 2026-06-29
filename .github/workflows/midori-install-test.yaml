@@ -4,7 +4,8 @@ on:
   push:
 env:
   VERSION: 12.0
-  PACKAGE_AMD: midori_12.0_amd64.deb 
+  PACKAGE_AMD: midori_12.0_amd64.2.deb 
+#  https://github.com/goastian/midori-desktop/releases/download/v12.0/midori_12.0_amd64.2.deb
   PACKAGE_ARM: midori_12.0_arm64.deb 
 
 jobs:
@@ -37,21 +38,21 @@ jobs:
         if: matrix.arch == 'amd64'
         run: |
           wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_AMD}
-
-      - name: Get Package ARM 64
-        if: matrix.arch == 'arm64'
-        run: | 
-          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_ARM}
+#              https://github.com/goastian/midori-desktop/releases/download/v12.0/midori_12.0_amd64.2.deb
+#      - name: Get Package ARM 64
+#        if: matrix.arch == 'arm64'
+#        run: | 
+#          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_ARM}
      
       - name: Install Midori AMD 64
         if: matrix.arch == 'amd64'
         run: |
           sudo apt install ./$PACKAGE_AMD        
 
-      - name: Install Midori ARM 64
-        if: matrix.arch == 'arm64'
-        run: |
-          sudo apt install ./$PACKAGE_ARM        
+ #     - name: Install Midori ARM 64
+ #       if: matrix.arch == 'arm64'
+ #       run: |
+ #         sudo apt install ./$PACKAGE_ARM        
 
   Debian:
     runs-on: ubuntu-latest
@@ -70,6 +71,7 @@ jobs:
       - name: Get package
         run: | 
           wget https://github.com/goastian/midori-desktop/releases/download/v$VERSION/$PACKAGE_AMD
+#              https://github.com/goastian/midori-desktop/releases/download/v12.0/midori_12.0_amd64.2.deb
       - name: Install Midori
         run: |
           apt install ./$PACKAGE_AMD -y
