@@ -3,9 +3,7 @@ on:
   workflow_dispatch:
   push:
 env:
-#  VERSION: 11.8.2
   VERSION: '12.0'
-#  PACKAGE_AMD: midori_11.8.2-0_amd64.deb 
   PACKAGE_AMD: midori_12.0_amd64.2.deb 
 jobs:
   Ubuntu:
@@ -19,12 +17,12 @@ jobs:
             arch: amd64
           - os: ubuntu-22.04
             arch: amd64
-          - os: ubuntu-26.04-arm
-            arch: arm
-          - os: ubuntu-24.04-arm
-            arch: arm64
-          - os: ubuntu-22.04-arm
-            arch: arm64
+#          - os: ubuntu-26.04-arm
+#            arch: arm
+#          - os: ubuntu-24.04-arm
+#            arch: arm64
+#          - os: ubuntu-22.04-arm
+#            arch: arm64
             
     steps:
       
@@ -37,7 +35,6 @@ jobs:
         if: matrix.arch == 'amd64'
         run: |
           wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_AMD}
-#              https://github.com/goastian/midori-desktop/releases/download/v12.0/midori_12.0_amd64.2.deb
 #      - name: Get Package ARM 64
 #        if: matrix.arch == 'arm64'
 #        run: | 
