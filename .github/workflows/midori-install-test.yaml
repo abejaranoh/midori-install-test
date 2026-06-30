@@ -5,6 +5,7 @@ on:
 env:
   VERSION: '11.8.2'
   PACKAGE_AMD: midori_11.8.2-0_amd64.deb 
+  PACKAGE_ARM: midori_11.8.2-0_arm64.deb 
 jobs:
   Ubuntu:
     runs-on: ${{ matrix.os }}
@@ -17,12 +18,12 @@ jobs:
             arch: amd64
           - os: ubuntu-22.04
             arch: amd64
-#          - os: ubuntu-26.04-arm
-#            arch: arm
-#          - os: ubuntu-24.04-arm
-#            arch: arm64
-#          - os: ubuntu-22.04-arm
-#            arch: arm64
+          - os: ubuntu-26.04-arm
+            arch: arm
+          - os: ubuntu-24.04-arm
+            arch: arm64
+          - os: ubuntu-22.04-arm
+            arch: arm64
             
     steps:
       
@@ -35,20 +36,20 @@ jobs:
         if: matrix.arch == 'amd64'
         run: |
           wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_AMD}
-#      - name: Get Package ARM 64
-#        if: matrix.arch == 'arm64'
-#        run: | 
-#          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_ARM}
+      - name: Get Package ARM 64
+        if: matrix.arch == 'arm64'
+        run: | 
+          wget https://github.com/goastian/midori-desktop/releases/download/v${VERSION}/${PACKAGE_ARM}
      
       - name: Install Midori AMD 64
         if: matrix.arch == 'amd64'
         run: |
           sudo apt install ./$PACKAGE_AMD        
 
- #     - name: Install Midori ARM 64
- #       if: matrix.arch == 'arm64'
- #       run: |
- #         sudo apt install ./$PACKAGE_ARM        
+      - name: Install Midori ARM 64
+        if: matrix.arch == 'arm64'
+        run: |
+          sudo apt install ./$PACKAGE_ARM        
 
   Debian:
     runs-on: ubuntu-latest
